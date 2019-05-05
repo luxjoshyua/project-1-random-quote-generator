@@ -97,8 +97,23 @@ function randomColor() {
 }
 
 
+function clearQuote() {
+  //clear here
+  var myNode = document.getElementById("quote-box");
+
+  while (myNode.firstChild) {
+    myNode.removeChild(myNode.firstChild);
+  }
+}
+
+
 // setup up the containing function printQuote
 function printQuote() {
+
+  //call clear quote
+  clearQuote();
+
+
   // Call the `getRandomQuote` function and assign it to a variable, then use it to build the string below
   let randomQuoteCall = getRandomQuote();
 
@@ -174,7 +189,7 @@ function printQuote() {
   if (randomQuoteCall.context) {
     // create a var, attach it to an HTML element on the page
     let context = document.createElement("p");
-    // add the class of context
+    // add the class of contex
     context.classList.add("context");
     // create a new text node that prints HTML characters to the document
     let contextCopy = document.createTextNode(randomQuoteCall.context);
@@ -189,21 +204,23 @@ printQuote();
 randomColor();
 
 
-
 // invoke the printQuote frunction when button is clicked
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", function () {
+  printQuote();
+  randomColor();
+}, false);
 
 // change DOM to random background color when button is clicked
-document.getElementById('loadQuote').addEventListener("click", randomColor, false);
+//document.getElementById('loadQuote').addEventListener("click", randomColor, false);
 
 
 // change the quote on screen after 20 seconds with setInterval()
 
-// const clearPrintQuote = setInterval(printQuote, 20000); 
+//const clearPrintQuote = setInterval(printQuote, 20000); 
 
-// clearPrintQuote(); 
+//clearPrintQuote(); 
 
-// setTimeout(clearInterval, 5000, printQuote)
+//setTimeout(clearInterval, 5000, printQuote)
 
 
 
@@ -215,5 +232,3 @@ document.getElementById('loadQuote').addEventListener("click", randomColor, fals
 // function stop_interval() {
 //   clearInterval(setInterval_ID);
 // }
-
-
