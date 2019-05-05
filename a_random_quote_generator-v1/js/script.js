@@ -5,8 +5,10 @@ project 1 - A Random Quote Generator
 
 // Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
 
-// Create an array of quote objects, give each object properties e.g. quote, source, year, citation, tag, context
 
+
+
+// Create an array of quote objects, give each object properties e.g. quote, source, year, citation, tag, context
 var quotes = [
 
   // quote one
@@ -21,7 +23,7 @@ var quotes = [
   {
     quote: 'Destroy the Museums. Crack syntax. Sabotage the adjective. Leave nothing but the verb.',
     source: 'Filippo Tommaso Marinetti',
-    citation: 'Futurist Art book',
+    citation: 'Futurist Art in Modernism',
     tag: '20th Century Art, Futurism, Italian Philosophy',
     year: 1912
   },
@@ -39,9 +41,9 @@ var quotes = [
   {
     quote: 'Man will become immeasurably stronger, wiser, and subtler; his body will become more harmonious, his movements more rhythmic, his voice more musical. The forms of life will become dynamically dramatic. The average human type will rise to the heights of an Aristotle, a Goethe, or a Marx. And above these heights, new peaks will rise.',
     source: 'Lev Davidovich Bronstein aka Leon Trotsky',
-    citation: 'Russian History Book',
+    citation: 'Trotsky on the Society of the Future',
     tag: 'Russian History',
-    year: 1912
+    year: 1924
   },
 
   // quote five
@@ -65,7 +67,7 @@ var quotes = [
 
   // quote seven
   {
-    quote: 'Hey hey LBJ How many kids did you kill today?',
+    quote: 'Hey hey LBJ, how many kids did you kill today?',
     source: 'Vietnam War History book',
     context: 'Context; American protestors challenging Lyndon B. Johnson\'s decision to invade Vietnam in 1955.',
     citation: 'New York Times Article',
@@ -93,6 +95,7 @@ function randomColor() {
   var color = 'rgb(' + red + ',' + green + ',' + blue + ')'
   document.querySelector('body').style.backgroundColor = color;
 }
+
 
 // setup up the containing function printQuote
 function printQuote() {
@@ -185,24 +188,24 @@ function printQuote() {
 printQuote();
 randomColor();
 
-/***
-  When the "Show another quote" button is clicked, the event listener 
-  below will be triggered, and it will call, or "invoke", the `printQuote` 
-  function. So do not make any changes to the line of code below this 
-  comment.
-***/
 
+
+// invoke the printQuote frunction when button is clicked
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
+// change DOM to random background color when button is clicked
+document.getElementById('loadQuote').addEventListener("click", randomColor, false);
 
-// Set timeout function to clear the printQuote function after certain interval
 
-// const clearPrintQuote = setInterval(printQuote, 1000); 
+// change the quote on screen after 20 seconds with setInterval()
+
+// const clearPrintQuote = setInterval(printQuote, 20000); 
 
 // clearPrintQuote(); 
 
 // setTimeout(clearInterval, 5000, printQuote)
+
+
 
 
 // var setInterval_ID = setInterval(printQuote, 2000);
