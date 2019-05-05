@@ -5,14 +5,7 @@ project 1 - A Random Quote Generator
 
 // Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
 
-/*** 
-  Create the array of quote objects and name it `quotes`.
-  Add at least five quote objects to the `quotes` array.
-  Give each quote object a `quote` and `source` property.
-  Add the `citation` property to at least one object in the array.
-  Add the `year` property to at least one object in the array.
-  Use console.log() to log your array of quotes to the console.
-***/
+// Create an array of quote objects, give each object properties e.g. quote, source, year, citation, tag, context
 
 var quotes = [
 
@@ -29,7 +22,7 @@ var quotes = [
     quote: 'Destroy the Museums. Crack syntax. Sabotage the adjective. Leave nothing but the verb.',
     source: 'Filippo Tommaso Marinetti',
     citation: 'Futurist Art book',
-    tag: '20th Century Art',
+    tag: '20th Century Art, Futurism, Italian Philosophy',
     year: 1912
   },
 
@@ -56,7 +49,7 @@ var quotes = [
     quote: 'Without revolutionary theory there can be no revolutionary movement.',
     source: 'Vladimir Ilyich Ulyanov aka Lenin',
     citation: 'Dogmatism and "Freedom of Criticism"',
-    tag: 'Russian History',
+    tag: 'Russian History, Political Philosophy',
     year: 1902
   },
 
@@ -64,7 +57,7 @@ var quotes = [
   {
     quote: 'I know you\'ve come to kill me, Shoot, you are only going to kill a man.',
     source: "Ernesto 'Che' Guevara",
-    context: 'Context; The CIA had captured Che in the Bolivian jungle and were preparing to shoot him.',
+    context: 'Context; The CIA had captured Che in the Bolivian jungle and were preparing to shoot him in a one-room schoolhouse in the town of La Higuera.',
     citation: 'Lee Anderson\'s biography Che Guevara: A Revolutionary Life',
     tag: 'Latin American History',
     year: 1967
@@ -81,6 +74,8 @@ var quotes = [
   }
 ];
 
+// log the array to the console, check it's working, remember 'when in doubt, log it out'
+console.log(quotes);
 
 // create getRandomQuote() function
 function getRandomQuote() {
@@ -101,23 +96,16 @@ function randomColor() {
 
 // setup up the containing function printQuote
 function printQuote() {
-
   // Call the `getRandomQuote` function and assign it to a variable, then use it to build the string below
   let randomQuoteCall = getRandomQuote();
 
-  // Create a variable for the HTML string and set it equal to an empty string.
-  let html = '';
-
-  // parent div here
+  // parent div
   let parentDiv = document.getElementById('quote-box');
-
-  // add the parent div class here
-  // source.classList.add("quote-box"); 
 
   // mark the variable (quoteDiv), attach it to a new element
   let quoteDiv = document.createElement("p");
+  // add the class of quote
   quoteDiv.classList.add("quote");
-
   // mark the variable, attach it to the random quote generator variable
   let quoteCopy = document.createTextNode(randomQuoteCall.quote);
 
@@ -125,13 +113,13 @@ function printQuote() {
 
   parentDiv.appendChild(quoteDiv);
 
-
   // Use an if statement to check for the source property before adding it to the HTML string.
   if (randomQuoteCall.source) {
-
+    // create a var, attach it to an HTML element on the page
     let source = document.createElement("p");
     // add the class of source
     source.classList.add("source");
+    // create a new text node that prints HTML characters to the document
     let sourceCopy = document.createTextNode(randomQuoteCall.source);
     source.appendChild(sourceCopy);
     // insert into the parentDiv variable created above, append the source p element here to it
@@ -140,23 +128,24 @@ function printQuote() {
 
   // Use an if statement to check for the citation property before adding it to the HTML string.
   if (randomQuoteCall.citation) {
-
-    // created div, need to insert random citation into child div
+    // create a var, attach it to an HTML element on the page
     let citation = document.createElement("span");
     // add the class of citation
     citation.classList.add("citation");
+    // create a new text node that prints HTML characters to the document
     let citationCopy = document.createTextNode(randomQuoteCall.citation);
     citation.appendChild(citationCopy);
     // insert into the parentDiv variable created above, append the citation div here to it
     parentDiv.appendChild(citation);
-
   }
 
   // Use an if statement to check for the year property before adding it to the HTML string.
   if (randomQuoteCall.year) {
+    // create a var, attach it to an HTML element on the page
     let year = document.createElement("span");
     // add the class of year 
     year.classList.add("year");
+    // create a new text node that prints HTML characters to the document
     let yearCopy = document.createTextNode(randomQuoteCall.year);
     // attach yearCopy 
     year.appendChild(yearCopy);
@@ -166,9 +155,11 @@ function printQuote() {
 
   // Use an if statement to check for the tag property before adding it to the HTML string.
   if (randomQuoteCall.tag) {
+    // create a var, attach it to an HTML element on the page
     let tag = document.createElement("p");
     // add the class of year 
     tag.classList.add("tag");
+    // create a new text node that prints HTML characters to the document
     let tagCopy = document.createTextNode(randomQuoteCall.tag);
     // attach yearCopy 
     tag.appendChild(tagCopy);
@@ -176,24 +167,23 @@ function printQuote() {
     parentDiv.appendChild(tag);
   }
 
-   // Use an if statement to check for the context property before adding it to the HTML string.
-   if (randomQuoteCall.context) {
+  // Use an if statement to check for the context property before adding it to the HTML string.
+  if (randomQuoteCall.context) {
+    // create a var, attach it to an HTML element on the page
     let context = document.createElement("p");
     // add the class of context
     context.classList.add("context");
+    // create a new text node that prints HTML characters to the document
     let contextCopy = document.createTextNode(randomQuoteCall.context);
     // attach contextCopy 
     context.appendChild(contextCopy);
     // appendChild context to the parentDiv
     parentDiv.appendChild(context);
   }
-
-}
+};
 
 printQuote();
 randomColor();
-
-
 
 /***
   When the "Show another quote" button is clicked, the event listener 
@@ -204,10 +194,23 @@ randomColor();
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
 
-// Set timeout function on the printQuote 
+// Set timeout function to clear the printQuote function after certain interval
+
+// const clearPrintQuote = setInterval(printQuote, 1000); 
+
+// clearPrintQuote(); 
+
+// setTimeout(clearInterval, 5000, printQuote)
 
 
-var intervalID = window.setInterval(printQuote, 500); 
+// var setInterval_ID = setInterval(printQuote, 2000);
+
+// setTimeout(stop_interval, 1000);
+
+// function stop_interval() {
+//   clearInterval(setInterval_ID);
+// }
+
+
