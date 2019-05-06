@@ -82,7 +82,7 @@ function getRandomQuote() {
     // generate a random number between 0 and the last index in the array parameter
     let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     // return the randomly selected quote object
-    return randomQuote;
+    return randomQuote; 
 }
 
 // Create a random colour function
