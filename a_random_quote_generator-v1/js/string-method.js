@@ -94,14 +94,6 @@ function randomColor() {
     document.querySelector('body').style.backgroundColor = color;
 }
 
-function clearQuote() {
-    //clear here
-    var myNode = document.getElementById("quote-box");
-    while (myNode.firstChild) {
-        myNode.removeChild(myNode.firstChild);
-    }
-}
-
 function printQuote() {
     // create new variable called randomQuote, assign it to getRandomQuote variable
     let randomQuote = getRandomQuote();
@@ -127,14 +119,11 @@ function printQuote() {
     if (randomQuote.context) {
         html += '<p class="context">' + randomQuote.context + '</p>';
     }
-
+    // close the p element
     html += '</p>';
-
     // add the string to the quote-box div
     let quoteDiv = document.getElementById('quote-box');
-
     quoteDiv.innerHTML = html;
-
 }
 
 // invoke the printQuote and randomColor functions when button is clicked
@@ -143,6 +132,9 @@ document.getElementById('loadQuote').addEventListener("click", function () {
     randomColor();
 }, false);
 
-
 printQuote();
 randomColor();
+
+/* print new quote to page after certain interval
+accepts two parameters - function, timing */
+setInterval(printQuote, 10000);
