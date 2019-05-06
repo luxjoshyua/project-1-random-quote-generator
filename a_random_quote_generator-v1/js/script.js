@@ -204,31 +204,38 @@ printQuote();
 randomColor();
 
 
-// invoke the printQuote frunction when button is clicked
+
+
+function printQuote() {
+  let randomQuote = getRandomQuote();
+
+  let html = '';
+
+  html += '<p class="quote">' + randomQuote.quote + '</p>';
+
+  html += '<p class="source">' + randomQuote.source + '</p>';
+
+  if (randomQuote.citation) {
+    html += '<span class="year">' + randomQuote.year + '</span>'; 
+  }
+
+  if (randomQuote.tag) {
+    html += '<span class="tag">' + randomQuote.tag + '</span>'; 
+  }
+
+  if (randomQuote.citation) {
+    html += '<span class="citation">' + randomQuote.tag + '</span>'; 
+  }
+
+  if (randomQuote.context) {
+    html += '<p class="context">' + randomQuote.context + '</p>'; 
+  }
+  
+}
+
+// invoke the printQuote and randomColor functions when button is clicked
 document.getElementById('loadQuote').addEventListener("click", function () {
   printQuote();
   randomColor();
 }, false);
 
-// change DOM to random background color when button is clicked
-//document.getElementById('loadQuote').addEventListener("click", randomColor, false);
-
-
-// change the quote on screen after 20 seconds with setInterval()
-
-//const clearPrintQuote = setInterval(printQuote, 20000); 
-
-//clearPrintQuote(); 
-
-//setTimeout(clearInterval, 5000, printQuote)
-
-
-
-
-// var setInterval_ID = setInterval(printQuote, 2000);
-
-// setTimeout(stop_interval, 1000);
-
-// function stop_interval() {
-//   clearInterval(setInterval_ID);
-// }
