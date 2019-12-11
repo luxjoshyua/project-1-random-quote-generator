@@ -43,7 +43,7 @@ var quotes = [
     quote: 'Man will become immeasurably stronger, wiser, and subtler; his body will become more harmonious, his movements more rhythmic, his voice more musical. The forms of life will become dynamically dramatic. The average human type will rise to the heights of an Aristotle, a Goethe, or a Marx. And above these heights, new peaks will rise.',
     source: 'Lev Davidovich Bronstein aka Leon Trotsky',
     citation: 'Trotsky on the Society of the Future',
-    tag: 'Russian History',
+    tag: 'Modern Russian History',
     year: 1924
   },
 
@@ -52,7 +52,7 @@ var quotes = [
     quote: 'Without revolutionary theory there can be no revolutionary movement.',
     source: 'Vladimir Ilyich Ulyanov aka Lenin',
     citation: 'Dogmatism and "Freedom of Criticism"',
-    tag: 'Russian History, Political Philosophy',
+    tag: 'Modern Russian History, Political Philosophy',
     year: 1902
   },
 
