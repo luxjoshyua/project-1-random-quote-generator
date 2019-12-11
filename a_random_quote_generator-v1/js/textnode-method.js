@@ -19,6 +19,7 @@ var quotes = [
     citation: 'Quotation\'s from Chairman Mao Tse-Tung book'
   },
 
+  
   // quote two
   {
     quote: 'Destroy the Museums. Crack syntax. Sabotage the adjective. Leave nothing but the verb.',
